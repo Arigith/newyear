@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+// import TablePersona from "../components/persona";
+const pageTitle = "Project";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <h2>Objective</h2>
+    <p>The plan for this was to showcase that I can write a basic app.</p>
+    <p>I wanted to create a database that had a select dropdown filter on a specific column.</p>
+    
+    <h2>My plan</h2>
+    <p>My plan was as follows:</p>
+    <li>Make a database with data I required</li>
+    <li>Put everything onto a api</li>
+    <li>Have astro show my base data</li>
+    <li>Add the select dropdown</li>
+    
+    <h2>Blueprint</h2>
+    <img src='/images/BaseBlueprint.jpg' />
+    
+        <h2>Database Outcome</h2>
+    <!-- <TablePersona client:only="react" /> -->
+</BaseLayout>

@@ -1,0 +1,22 @@
+Title: Day 1
+Date: 19/12/2022
+Info: Today I did the following:
+        Created a basic workflow blueprint on what i wanted to do.
+        Created backend and frontend folders
+        To frontend folder:
+            Added empty pages for: index, about and project
+            Added components: Navigation, Social, Header and Footer
+            Created my BaseLayout
+        To backend folder:
+            Added empty pages for database, main, models and schemas
+
+Title: Day 2
+Date: 20/12/2022
+Info: Decided today to journal my worklog and if I get time then to add an additional page to my frontend and add my journal to this. Decided that if I get that far then I would try and use an old project for this.
+    To frontend added journal page
+    To backend added worlog.txt
+    Coded models.py to have tables and columns I require
+    Coded database.py to check/create database called project.db if not already created once command was run
+    Coded main.py to use fastapi, give access to frontend and to run command for database.py
+    Updated worklog.txt
+    Added to Github

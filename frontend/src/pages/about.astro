@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "About Me";
+const identity ={
+	firstName: 'Stacey',
+	country: 'New Zealand',
+	occupation: 'AWS Restart student',
+    learning: ['Programing with Python', 'AWS basics', 'Linux', 'Basic Networking', 'Databases', 'Basic CyberSecurity', 'DevOps'],
+	hobbies: ['Gaming', 'Cooking', 'Playing Summer Hockey', 'Movies'],
+    planned: ['Gym workouts', 'Swimming', ]
+};
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+<style define:vars={{skillColor, fontWeight, textCase}}>
+	.skill {
+		color: var(--skillColor);
+		font-weight: car(--fontWeight);
+		text-transform: var(--textCase);
+	}
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+<p>To start let me introduce myself</p>
+<ul>
+	<li>My name is {identity.firstName}.</li>
+	{identity.hobbies.length >= 2 &&
+		<li>I have a range of hobbies, some of these are: {identity.hobbies[0]}, {identity.hobbies[1]}, {identity.hobbies[2]} and {identity.hobbies[3]}</li>
+	}
+    {identity.planned.length >= 2 &&
+        <li>I am planning to get back into {identity.planned[0]} and {identity.planned[1]}</li>
+    }
+</ul>
+<p>During my time doing the AWS restart program I have learnt the following:</p>
+<ul>
+    {identity.learning.map((learnt) => <li class="learnt">{learnt}</li>)}
+</ul>
+<p>I am happy to have done this AWS restart course and recommend this to anyone wanting to learn these fundamentals</p>
+<p></p>
+</BaseLayout>

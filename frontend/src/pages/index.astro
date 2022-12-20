@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Home Page";
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+<style define:vars={{skillColor, fontWeight, textCase}}>
+	.learnt {
+		color: var(--skillColor);
+		font-weight: car(--fontWeight);
+		text-transform: var(--textCase);
+	}
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+	<h2>Welcome to my website</h2>
+	<p>Everything that can be seen on this site has been written and created all by me.</p>
+	<p>My objective in showing this website is to showcase a few of the things I have learnt from the AWS restart program. In essence this is the start of what I hope to be my IT portfolio</p>
+	<p>I have learnt my skills through the AWS Restart program held by Unitech NZ and was facilitated by Kris and Nick.</p>
+	<p>You can find out more about what was taught on the about page of this website</p>
+</BaseLayout>
