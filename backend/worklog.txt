@@ -20,3 +20,4 @@ Info: Decided today to journal my worklog and if I get time then to add an addit
     Coded main.py to use fastapi, give access to frontend and to run command for database.py
     Updated worklog.txt
     Added to Github
+    Updated readme
