@@ -10,5 +10,6 @@ class PhoneDetails(Base):
     __tablename__='phonedetail'
     id=Column(Integer, primary_key=True, index=True)
     phone_make=Column(String, ForeignKey('phonemake.id'))
-    phone_model=Column(String)
+    phone_model=Column(String, unique=True)
     phone_price=Column(Integer)
+    phone_pic=Column(String)

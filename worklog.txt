@@ -21,3 +21,15 @@ Info: Decided today to journal my worklog and if I get time then to add an addit
     Updated worklog.txt
     Added to Github
     Updated readme
+
+Title: Day 3
+Date: 21/12/2022
+Info: Add a post for mobile maker
+    Added data to this
+    Decided to have a pic of phone in this project
+    Added pictures for the phones to frontend\public\images\phone_pics
+    Made a show all for mobile maker
+    Updated models.py to have a pic column in the phonedetail table
+    Started a post for make, model, price and pic
+    Wanting to make the column "make" a select dropdown.
+    Started investigating how this could be done
