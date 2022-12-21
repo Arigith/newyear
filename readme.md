@@ -35,4 +35,4 @@ The `main` page is where the queries live. we can add, update, remove and get an
 
 ## FAQ
 
-The `worklog.txt` file hold my basic worklog on the day I did it. At the start I was doing 4 hours on the project and 4 hours study.
+The `worklog.txt` file holds my basic worklog on the day I did it. At the start I was doing 4 hours on the project and 4 hours study.
