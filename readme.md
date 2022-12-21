@@ -29,10 +29,10 @@ To make one page link to another just add an `<a href="/my_new_link>Click me</a>
 ### Backend
 This is holding the actual api information.
 The `database` page is where, after the command is given, that the system will check and create a database if one does not exist.
-The 'models' page is the page where the system will create the `table structure` of the database.
-The `schemas` page is where we can limit what is shown from the 'models' page. for example if we created a `get_model` query you can show the phone make and phone model only while the database can hold the unique_id, phone_make, phone_model and Price.
+The `models` page is the page where the system will create the `table structure` of the database.
+The `schemas` page is where we can limit what is shown from the `models` page. for example if we created a `get_model` query you can show the phone make and phone model only while the database can hold the unique_id, phone_make, phone_model and Price.
 The `main` page is where the queries live. we can add, update, remove and get anything from our database in this page.
 
 ## FAQ
 
-If you get 'You must set a region' run the `aws configure` command and set `us-west-2` or something equivalent as your region.
+The `worklog.txt` file hold my basic worklog on the day I did it. At the start I was doing 4 hours on the project and 4 hours study.
