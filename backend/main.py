@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List
 from database import engine, get_db
-from enum import Enum
 import models, schemas
 
 app=FastAPI()
@@ -37,15 +36,14 @@ def get_all(db:Session=Depends(get_db)):
     return data
 
 @app.post('/phone_details/add', status_code=status.HTTP_201_CREATED, tags=['mobile'])
-def add_phone_details(request:schemas.PhoneMakeAdd, request2:schemas.PhoneModel, db:Session=Depends(get_db)):
-    picpath='frontend\public\images\phone_pics\{request.phone_pic}'
+def add_phone_details(request:schemas.PhoneMakeAdd, db:Session=Depends(get_db)):
     new_data=models.PhoneDetails(
         # Need to change this to a select dropdown
         phone_make=request.phone_make,
         phone_model=request.phone_model,
         phone_price=request.phone_price,
         # wanting to add pic location path
-        phone_pic=picpath
+        phone_pic=request.phone_pic
     )
     db.add(new_data)
     db.commit()

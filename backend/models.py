@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Float
 from database import Base
 
 class PhoneMaker(Base):
@@ -11,5 +11,5 @@ class PhoneDetails(Base):
     id=Column(Integer, primary_key=True, index=True)
     phone_make=Column(String, ForeignKey('phonemake.id'))
     phone_model=Column(String, unique=True)
-    phone_price=Column(Integer)
+    phone_price=Column(Float)
     phone_pic=Column(String)

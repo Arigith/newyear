@@ -33,3 +33,12 @@ Info: Add a post for mobile maker
     Started a post for make, model, price and pic
     Wanting to make the column "make" a select dropdown.
     Started investigating how this could be done
+
+Title: Day 4
+Date: 22/12/2022
+Info: Tried getting select dropdown to work
+    Worked on a set dataset
+    Errored when tring to get working from a table
+    Tried for a couple of hours and had some persona stuff to take care of so left it alone
+    Asked for assistance after I got home as I couldn't think of a way to get the code to work
+    Will probably leave this alone on 23/12/2022 as I still have unfinished personal things to take care of
