@@ -42,3 +42,19 @@ Info: Tried getting select dropdown to work
     Tried for a couple of hours and had some persona stuff to take care of so left it alone
     Asked for assistance after I got home as I couldn't think of a way to get the code to work
     Will probably leave this alone on 23/12/2022 as I still have unfinished personal things to take care of
+
+Title: Day 5
+Date: 27/12/2022
+Info: Realized I am making things harder on myself and I should make this project work first and then add more complex methods if I can.
+    BACKEND
+    Deleted current db
+    edited models.py by removing the PhoneMaker table, added User and Worklog tables (added these just in case I was able to incorperate this)
+    Added a post request to add mobile data
+    Added data.
+    Data Source: https://www.2degrees.nz and if no 'buy outright' then https://pricespy.co.nz/
+    Added get request to get all phone details
+    FRONTEND
+    Made a MobileList.jsx
+    Updated project.astro
+    Showing data I wanted to show
+    Completed my work goal for today

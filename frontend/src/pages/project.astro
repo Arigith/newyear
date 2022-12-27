@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-// import TablePersona from "../components/persona";
+import TableMobiles from "../components/MobileList";
 const pageTitle = "Project";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
     <h2>Objective</h2>
     <p>The plan for this was to showcase that I can write a basic app.</p>
-    <p>I wanted to create a database that had a select dropdown filter on a specific column.</p>
+    <p>I wanted to create a database that had a select dropdown filter on a specific column when showing on the frontend.</p>
     
     <h2>My plan</h2>
     <p>My plan was as follows:</p>
@@ -19,6 +19,6 @@ const pageTitle = "Project";
     <h2>Blueprint</h2>
     <img src='/images/BaseBlueprint.jpg' />
     
-        <h2>Database Outcome</h2>
-    <!-- <TablePersona client:only="react" /> -->
+    <h2>Database Outcome</h2>
+    <TableMobiles client:only="react" />
 </BaseLayout>

@@ -1,16 +1,63 @@
+from datetime import date
+from fastapi import Form
+from pydantic import BaseModel, Field
+from passlib.context import CryptContext
 from typing import List
-from pydantic import BaseModel
+from enum import Enum
 
-class PhoneModel(BaseModel):
-    phone_maker:str
+pwd_ctxt=CryptContext(schemes=['bcrypt'],deprecated='auto')
+class Hash():
+    def bcrypt(password:str):
+        return pwd_ctxt.hash(password)
     
-class PhoneMake(BaseModel):
-    phone_make:str
+    def verify(plain_password, hashed_password):
+        return pwd_ctxt.verify(plain_password, hashed_password)
 
-class PhoneMakeAdd(PhoneMake):
+class PhoneMake(BaseModel):
+    phone_supplier:str
     phone_model:str
     phone_price:int
-    phone_pic:str
-    
+    phone_picture:str
+
+class PhoneDetails(PhoneMake):
     class Config():
         orm_mode=True
+
+class CreateWorkLog(BaseModel):
+    worklog_title: str
+    date_created: date
+    worklog_info: str
+
+class WorkLogContinue(CreateWorkLog):
+    class Config():
+        orm_mode=True
+
+class CreateUser(BaseModel):
+    user_name:str
+    user_email:str
+    user_password:str
+
+class ShowUserBase(BaseModel):
+    user_name:str
+    user_email:str
+    class Config():
+        orm_mode=True
+
+    
+# class ShowUserWorklogs(BaseModel):
+#     name:str
+#     email:str
+#     Worklog:List[Worklog] = []
+#     class Config():
+#         orm_mode=True
+
+class Login(BaseModel):
+    username:str
+    password:str
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    email: str | None = None
