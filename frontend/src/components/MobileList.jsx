@@ -3,12 +3,17 @@ import React, { useState, useEffect } from "react";
 export default function TableMobiles() {
     const [mobileList, setMobileList] = useState([""]);
     const [selectedSupplier, setSelectedSupplier] = useState("");
+    const uniqueSuppliers = [...new Set(mobileList.map(mobiledetails => mobiledetails.phone_supplier))];
 
     async function AllMobiles() {
+        try {
         const response = await fetch("http://127.0.0.1:8000/phone_details/list_all");
         const data = await response.json();
         console.log(data);
         setMobileList(data);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     useEffect(() => {
@@ -21,11 +26,20 @@ export default function TableMobiles() {
 
     return (
         <>
-        <h1></h1>
         <label>
-            Mobile:
+            Phone Make:
+                {/* <select value={selectedSupplier} onChange={handleMobileChange}>
+                        <option value="">All</option>
+                        <option value="Alcatel">Alcatel</option>
+                        <option value="iPhone">iPhone</option>
+                        <option value="OPPO">OPPO</option>
+                        <option value="Samsung">Samsung</option>
+                </select> */}
             <select value={selectedSupplier} onChange={handleMobileChange}>
                 <option value="">All</option>
+                {uniqueSuppliers.map(supplier => (
+                    <option value={supplier}>{supplier}</option>
+                ))}
             </select>
         </label>
         <table>
@@ -36,13 +50,13 @@ export default function TableMobiles() {
                 <th>Phone Price</th>
             </tr>
             {mobileList
-                .filter(mobiledetails => selectedSupplier== "" || mobiledetails.phone_supplier === selectedSupplier)
+                .filter(mobiledetails => selectedSupplier == "" || mobiledetails.phone_supplier === selectedSupplier)
                 .map((mobiledetails, index) => (
                 <tr key={index}>
-                    <td>{mobiledetails.phone_picture}</td>
+                    <td><img src={`/images/phone_pics/${mobiledetails.phone_picture}.png`} alt="Phone Picture" style={{width: "100px", height: "auto"}} /></td>
                     <td>{mobiledetails.phone_supplier}</td>
                     <td>{mobiledetails.phone_model}</td>
-                    <td>{mobiledetails.phone_price}</td>
+                    <td>${Number(mobiledetails.phone_price).toFixed(2)}</td>
                 </tr>
             ))}
         </table>

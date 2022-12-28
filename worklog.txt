@@ -58,3 +58,17 @@ Info: Realized I am making things harder on myself and I should make this projec
     Updated project.astro
     Showing data I wanted to show
     Completed my work goal for today
+
+Title: Day 6
+Date: 28/12/2022
+Info: Added img src to phone_picture and resized to be 100px/auto to keep scalling
+    Added '$' and 2 decimal places for phone_price
+    Made dropdown for filtering on the phone_supplier which I called Phone Make
+    Decided to work on the login and worklog additions to my project
+    Added 'create user' in main.py
+    Made a test user
+    Created jwt_token.py
+    Coded jwt_token.py
+    Created oauth2.py
+    Coded oauth2.py
+    Created a 'login' in main.py

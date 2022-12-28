@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TableMobiles from "../components/MobileList";
+const pageTitle = "Mobile Phone Project Outcome";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <TableMobiles client:only="react" />
+</BaseLayout>

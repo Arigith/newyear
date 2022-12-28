@@ -1,9 +1,6 @@
 from datetime import date
-from fastapi import Form
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from passlib.context import CryptContext
-from typing import List
-from enum import Enum
 
 pwd_ctxt=CryptContext(schemes=['bcrypt'],deprecated='auto')
 class Hash():

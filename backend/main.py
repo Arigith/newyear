@@ -1,9 +1,10 @@
 from fastapi import FastAPI, HTTPException, status, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from typing import List
 from database import engine, get_db
-import models, schemas
+import models, schemas, jwt_token
 
 app=FastAPI()
 
@@ -29,8 +30,7 @@ def add_phone_details(request:schemas.PhoneDetails, db:Session=Depends(get_db)):
         phone_supplier=request.phone_supplier,
         phone_model=request.phone_model,
         phone_price=request.phone_price,
-        # wanting to add pic location path
-        phone_picture=request.phone_picture
+        phone_picture=request.phone_picture,
     )
     db.add(new_data)
     db.commit()
@@ -41,3 +41,36 @@ def add_phone_details(request:schemas.PhoneDetails, db:Session=Depends(get_db)):
 def list_all(db:Session=Depends(get_db)):
     mobiledetails=db.query(models.PhoneDetails).all()
     return mobiledetails
+
+@app.post('/user/create', response_model=schemas.ShowUserBase, status_code=status.HTTP_201_CREATED, tags=['user'])
+def create_user(request:schemas.CreateUser, db:Session=Depends(get_db)):
+    new_user=models.User(
+        user_name=request.user_name,
+        user_email=request.user_email,
+        user_password=schemas.Hash.bcrypt(request.user_password),
+    )
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
+    return new_user
+
+@app.post('/login', tags=['login'])
+def user_login(request: OAuth2PasswordRequestForm=Depends(), db:Session=Depends(get_db)):
+    user=db.query(models.User).filter(models.User.user_email==request.username).first()
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, 
+            detail='Something went wrong. Please check your details and try again'
+        )
+    if not schemas.Hash.verify(request.password, user.user_password):
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, 
+            detail='Something went wrong. Please check your details and try again'
+        )
+        
+    access_token_expires=jwt_token.timedelta(minutes=jwt_token.ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token=jwt_token.create_access_token(
+        data={'sub':user.user_email},
+        expires_delta=access_token_expires,
+    )
+    return {'access_token': access_token, 'token_type':'bearer'}

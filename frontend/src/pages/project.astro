@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import TableMobiles from "../components/MobileList";
 const pageTitle = "Project";
 ---
 
@@ -19,6 +18,5 @@ const pageTitle = "Project";
     <h2>Blueprint</h2>
     <img src='/images/BaseBlueprint.jpg' />
     
-    <h2>Database Outcome</h2>
-    <TableMobiles client:only="react" />
+    <a href="/mobilephone"><h2>Database Outcome</h2></a>
 </BaseLayout>
