@@ -80,3 +80,4 @@ Info: Created a login page.
     Restyled all pages to match
     Made a netify website for this project
     Updated readme with website details
+    Realised website not loading same details as localhost
