@@ -72,3 +72,11 @@ Info: Added img src to phone_picture and resized to be 100px/auto to keep scalli
     Created oauth2.py
     Coded oauth2.py
     Created a 'login' in main.py
+
+Title: Day 7
+Date: 31/12/2022
+Info: Created a login page.
+    Created and applied a style.
+    Restyled all pages to match
+    Made a netify website for this project
+    Updated readme with website details

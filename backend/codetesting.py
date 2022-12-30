@@ -1,6 +1,6 @@
 from typing import List
 from enum import Enum
-from fastapi import FastAPI, Form, Depends, status
+from fastapi import FastAPI, Form, Depends, status, HTTPException
 from sqlalchemy.orm import Session, session
 from database import get_db
 import models, schemas
@@ -210,3 +210,9 @@ AttributeError: Neither 'InstrumentedAttribute' object nor 'Comparator' object a
 phone_makers = session.query(models.PhoneDetails).join(models.PhoneMaker).filter(models.PhoneMaker.phone_maker=='')
 
 # asking for assistance from Kris
+import main
+def get_active_user(current_user: schemas.ShowUserBase=Depends(main.user_login)):
+  if current_user.disabled:
+    raise HTTPException(status=status.HTTP_401_UNAUTHORIZED, detail='Inactive USer')
+  return current_user
+

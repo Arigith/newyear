@@ -1,3 +1,14 @@
+## Live website
+
+```shell
+There is a semi live version that can be found at https://newyearmeetup.netlify.app/
+
+To have fully working version the backend still needs to be run.
+This can be done in 2 ways:
+1- Follow Backend options below
+2- Deploy AWS EC@ service using (S3, RDS, VPC), copy/enter database contents over and then connect to this instance
+```
+
 ## Frontend
 
 ```shell

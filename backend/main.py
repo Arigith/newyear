@@ -23,6 +23,7 @@ app.add_middleware(
 
 models.Base.metadata.create_all(engine)
 
+# Mobile Requests
 @app.post('/phone_details/add', status_code=status.HTTP_201_CREATED, tags=['mobile'])
 def add_phone_details(request:schemas.PhoneDetails, db:Session=Depends(get_db)):
     new_data=models.PhoneDetails(
@@ -42,6 +43,7 @@ def list_all(db:Session=Depends(get_db)):
     mobiledetails=db.query(models.PhoneDetails).all()
     return mobiledetails
 
+# User Requests
 @app.post('/user/create', response_model=schemas.ShowUserBase, status_code=status.HTTP_201_CREATED, tags=['user'])
 def create_user(request:schemas.CreateUser, db:Session=Depends(get_db)):
     new_user=models.User(
@@ -54,6 +56,7 @@ def create_user(request:schemas.CreateUser, db:Session=Depends(get_db)):
     db.refresh(new_user)
     return new_user
 
+# Authentication Requests
 @app.post('/login', tags=['login'])
 def user_login(request: OAuth2PasswordRequestForm=Depends(), db:Session=Depends(get_db)):
     user=db.query(models.User).filter(models.User.user_email==request.username).first()
@@ -74,3 +77,5 @@ def user_login(request: OAuth2PasswordRequestForm=Depends(), db:Session=Depends(
         expires_delta=access_token_expires,
     )
     return {'access_token': access_token, 'token_type':'bearer'}
+
+# Worklog Requests
