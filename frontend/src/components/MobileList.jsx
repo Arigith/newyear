@@ -28,13 +28,6 @@ export default function TableMobiles() {
         <>
         <label>
             Phone Make:
-                {/* <select value={selectedSupplier} onChange={handleMobileChange}>
-                        <option value="">All</option>
-                        <option value="Alcatel">Alcatel</option>
-                        <option value="iPhone">iPhone</option>
-                        <option value="OPPO">OPPO</option>
-                        <option value="Samsung">Samsung</option>
-                </select> */}
             <select value={selectedSupplier} onChange={handleMobileChange}>
                 <option value="">All</option>
                 {uniqueSuppliers.map(supplier => (
