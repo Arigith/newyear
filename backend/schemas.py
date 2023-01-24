@@ -1,4 +1,5 @@
 from datetime import date
+from typing import List
 from pydantic import BaseModel
 from passlib.context import CryptContext
 
@@ -41,13 +42,18 @@ class ShowUserBase(BaseModel):
     class Config():
         orm_mode=True
 
-    
 # class ShowUserWorklogs(BaseModel):
-#     name:str
-#     email:str
-#     Worklog:List[Worklog] = []
+#     user_name:str
+#     worklog_info:List[WorkLogContinue] = []
 #     class Config():
 #         orm_mode=True
+
+class show_worklog(BaseModel):
+    worklog_title: str
+    worklog_date_created: date
+    worklog_info: str
+    class Config:
+        orm_mode=True
 
 class Login(BaseModel):
     username:str

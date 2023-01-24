@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, status, Depends
+from fastapi import FastAPI, HTTPException, status, Depends, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
@@ -63,12 +63,12 @@ def user_login(request: OAuth2PasswordRequestForm=Depends(), db:Session=Depends(
     user=db.query(models.User).filter(models.User.user_email==request.username).first()
     if not user:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, 
+            status_code=status.HTTP_401_UNAUTHORIZED, 
             detail='Something went wrong. Please check your details and try again'
         )
     if not schemas.Hash.verify(request.password, user.user_password):
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, 
+            status_code=status.HTTP_401_UNAUTHORIZED, 
             detail='Something went wrong. Please check your details and try again'
         )
         
@@ -79,4 +79,34 @@ def user_login(request: OAuth2PasswordRequestForm=Depends(), db:Session=Depends(
     )
     return {'access_token': access_token, 'token_type':'bearer'}
 
-# Worklog Requests
+# Create a worklog
+@app.post('/worklog/create', tags=['worklog'])
+def create_new_worklog(request:schemas.WorkLogContinue, db:Session=Depends(get_db)):
+    new_worklog=models.WorkLog(
+        worklog_title=request.worklog_title,
+        worklog_info=request.worklog_info,
+        # TODO associate user_id to logged in user
+        user_id='1',
+        )
+    db.add(new_worklog)
+    db.commit()
+    db.refresh(new_worklog)
+    return new_worklog
+
+# Get a users worklog
+@app.get('/worklog/{id}', response_model=List[schemas.show_worklog], status_code=status.HTTP_200_OK, tags=['worklog'])
+def show_user_worklog(id, response:Response, db:Session=Depends(get_db)):
+    worklog=db.query(models.WorkLog).filter(models.WorkLog.user_id==id).all()
+    if not worklog:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail='Something went wrong. Please check your details and try again')
+    return worklog
+
+# Delete a worklog
+@app.delete('/worklog/delete/{id}', status_code=status.HTTP_204_NO_CONTENT, tags=['worklog'])
+def delete_blog(id, db:Session=Depends(get_db)):
+    worklog=db.query(models.WorkLog).filter(models.WorkLog.worklog_id==id)
+    if not worklog.first():
+        raise HTTPException(status_code=status.HTTP_204_NO_CONTENT, detail=f'Worklog post with id {id} was not found')
+    worklog.delete(synchronize_session=False)
+    db.commit()
+    return {'detail', 'The blog has been removed as requested'}

@@ -81,3 +81,10 @@ Info: Created a login page.
     Made a netify website for this project
     Updated readme with website details
     Realised website not loading same details as localhost
+
+Title: Day 8
+Date: 24/01/2023
+Info: Added a 'create worklog' in main.py
+    Created a 'show worklog' in schemas.py
+    Added a 'list worklogs' in main.py
+    Added a 'delete worklog' in main.py
