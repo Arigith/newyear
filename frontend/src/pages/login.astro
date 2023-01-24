@@ -1,5 +1,6 @@
 ---
 import '../styles/login.css';
+import handleLogin from '../components/LoginEvent';
 const pageTitle = "Login";
 ---
 <style>
@@ -14,13 +15,24 @@ const pageTitle = "Login";
     }
 </style>
 
-<div class="login">
+<!-- <div class="login">
     <title>{pageTitle}</title>
     <a href="/">Home</a>
     <h1>{pageTitle}</h1>
     <form method="post">
         <input type="text" name="u" placeholder="Username" required="required" />
         <input type="password" name="p" placeholder="Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+    </form>
+</div> -->
+
+<div class="login">
+    <title>{pageTitle}</title>
+    <a href="/">Home</a>
+    <h1>{pageTitle}</h1>
+    <form onsubmit="handleLogin(event)">
+        <input type='text' id='email' placeholder='email' required='required' />
+        <input type='password' id='password' placeholder='Password' required='required' />
         <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
     </form>
 </div>
