@@ -1,6 +1,6 @@
 ---
 import '../styles/login.css';
-import handleLogin from '../components/LoginEvent';
+import LoginSetup from '../components/LoginEvent';
 const pageTitle = "Login";
 ---
 <style>
@@ -30,9 +30,5 @@ const pageTitle = "Login";
     <title>{pageTitle}</title>
     <a href="/">Home</a>
     <h1>{pageTitle}</h1>
-    <form onsubmit="handleLogin(event)">
-        <input type='text' id='email' placeholder='email' required='required' />
-        <input type='password' id='password' placeholder='Password' required='required' />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
-    </form>
+    <LoginSetup client:only="react" />
 </div>

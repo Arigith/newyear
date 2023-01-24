@@ -1,11 +1,5 @@
-// import React, { useState, useEffect} from "react";
-
-// function UserLogin() {
-//     const [Username,setUsername]=useState("")
-//     const [Password,setPassword]=useState("")
-// }
-
-export default function handleLogin(event) {
+export default function LoginSetup() {
+    function handleLogin(event) {
         event.preventDefault();
     
         var username = document.getElementById("username").value;
@@ -41,3 +35,12 @@ export default function handleLogin(event) {
                 alert("An error occurred. Please try again later.");
             });
     };
+
+    return (
+        <form onsubmit={handleLogin}>
+            <input type='text' id='email' placeholder='email' required='required' />
+            <input type='password' id='password' placeholder='Password' required='required' />
+            <button type='submit' class='btn btn-primary btn-block btn-large'>Let me in.</button>
+        </form>
+    )
+}
