@@ -5,7 +5,7 @@ export default function LoginSetup() {
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
     
-        fetch('/login', {
+        fetch('http://127.0.0.1:8000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ export default function LoginSetup() {
                     // Store the access token in the browser's local storage or in a cookie
                     localStorage.setItem('access_token', data.access_token);
                     // Redirect the user to a protected page
-                    window.location.href = '/worklog';
+                    window.location.href = 'http://localhost:3000/worklog';
                 } else {
                     // Handle the error
                     alert('Invalid username or password');

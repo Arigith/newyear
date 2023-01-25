@@ -1,0 +1,47 @@
+<div class="new-worklog">
+    <title>Create new worklog</title>
+    <a href="/">Home</a>
+    <h1>Create new worklog</h1>
+    <form onsubmit="createWorklog(event)">
+        <label for="title">Title:</label>
+        <input type="text" id="title" required="required" />
+        <label for="info">Info:</label>
+        <textarea id="info" required="required"></textarea>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Create</button>
+    </form>
+</div>
+
+<script>
+    function createWorklog(event) {
+        event.preventDefault();
+
+        var title = document.getElementById("title").value;
+        var info = document.getElementById("info").value;
+        var access_token = localStorage.getItem("access_token");
+
+        fetch("/worklog/create", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + access_token
+            },
+            body: JSON.stringify({ worklog_title: title, worklog_info: info })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("HTTP error " + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle the success response
+                console.log("Worklog created successfully:", data);
+                alert("Worklog created successfully!");
+            })
+            .catch(error => {
+                // Handle the error
+                console.error("Error:", error);
+                alert("An error occurred. Please try again later.");
+            });
+    }
+</script>
