@@ -1,16 +1,23 @@
+import React, { useState } from "react";
+
 export default function LoginSetup() {
+    const {email, setEmail}=useState(null);
+    const {password, setPassword}=useState(null);
+
+    // const handleEmailInput = (event) => {setEmail(event.target.email[0])};
+    // const handlePasswordInput = (event) => {setPassword(event.target.password[0])};
+
     function handleLogin(event) {
         event.preventDefault();
     
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-    
+        // var email = document.getElementById('email').value;
+        // var password = document.getElementById('password').value;
         fetch('http://127.0.0.1:8000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username: username, password: password })
+            body: JSON.stringify({ username: email, password: password })
         })
             .then(response => {
                 if (!response.ok) {
@@ -37,10 +44,12 @@ export default function LoginSetup() {
     };
 
     return (
-        <form onsubmit={handleLogin}>
+        <form onSubmit={handleLogin}>
             <input type='text' id='email' placeholder='email' required='required' />
+            {/* <input type='text' id='email' placeholder='email' required='required' onChange={handleEmailInput} /> */}
             <input type='password' id='password' placeholder='Password' required='required' />
-            <button type='submit' class='btn btn-primary btn-block btn-large'>Let me in.</button>
+            {/* <input type='password' id='password' placeholder='Password' required='required' onChange={handlePasswordInput} /> */}
+            <button type='submit' className='btn btn-primary btn-block btn-large'>Let me in.</button>
         </form>
     )
 }
