@@ -88,3 +88,17 @@ Info: Added a 'create worklog' in main.py
     Created a 'show worklog' in schemas.py
     Added a 'list worklogs' in main.py
     Added a 'delete worklog' in main.py
+
+Title: Day 9
+Date: 25/01/2023
+Info: Created a LoginEvent.jsx
+    Updated login.astro
+    Service is not loging in
+
+Title: Day 10
+Date: 26/01/2023
+Info: Found error in FF inspect aspect
+    updated LoginEvent.jsx to have correct fields
+    Still getting an error: 
+        "POST /login HTTP/1.1" 422 Unprocessable Entity
+        
