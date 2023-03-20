@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Register from "../components/Test";
+// import RegisterNow from "../components/Test";
+// import RegisterMe from "../components/Register";
+
+const pageTitle = 'Registration'
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <!-- <RegisterNow client:only="react" /> -->
+    <Register client:only='react' />
+    <!-- <RegisterMe client:only='react' /> -->
+</BaseLayout>

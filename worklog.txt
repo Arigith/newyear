@@ -101,4 +101,9 @@ Info: Found error in FF inspect aspect
     updated LoginEvent.jsx to have correct fields
     Still getting an error: 
         "POST /login HTTP/1.1" 422 Unprocessable Entity
-        
+
+Title: Day 11
+Date: 27/01/2023
+Info: Created a test.jsx and test.astro
+    retried writing login slightly different and still get the error "POST /login HTTP/1.1" 422 Unprocessable Entity
+    added a header and get a `"OPTIONS /worklog/create HTTP/1.1" 200 OK` and then the post error

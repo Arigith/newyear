@@ -1,0 +1,63 @@
+AWS team
+- 
+
+Spark NZ
+- GD Taylor, Sarah Stack
+- Diverse areas to move into
+
+CCL
+- Jas Khan
+- Multi cloud
+
+AoFrio
+- Andre Groen
+- Refidgeration
+- Mainly use cloud
+- Various platforms supported
+
+Air NZ
+- Molly Workman
+- more support at moment
+
+Matchstiq
+- Greg
+- Not hiring and here for networking only at moment
+
+Kiwirail
+- Dave
+- 
+
+TVNZ
+- William Wang 
+- Is apart of the Digital area (Digital Plus)
+
+Summer Of Tech (SoT)
+- John Clegg
+- Not hiring. is doing same as Matchstick
+
+Room 1 - Spark, CCL
+    - Would like to place interns now
+    - 
+
+Room 2 - Matchstiq
+    - 
+
+Room 3 - AoFrio - Andre Groen
+    - SaaS company
+    - Uses mobiles to push to cloud at moment
+    - Uses Docker containers
+    - Python, desktop app
+    - nodejs and javascript
+    - Uses fluter mainly for frontend
+
+Room 4 - SoT
+    - Is there to get people into tech
+    - Is here for the getting a job (ie CV, interviews)
+    - About 90% hiring rate
+    - Helps get a job you want not first one offered
+
+Room 6 - Air NZ - Molly Workman
+- MACFS
+- Has both Cloud and On Premise
+- Advice: Give examples with the keywords when applying to jobs
+- 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function TableMobiles() {
     const [mobileList, setMobileList] = useState([""]);
@@ -46,7 +46,7 @@ export default function TableMobiles() {
                 .filter(mobiledetails => selectedSupplier == "" || mobiledetails.phone_supplier === selectedSupplier)
                 .map((mobiledetails, index) => (
                 <tr key={index}>
-                    <td><img src={`/images/phone_pics/${mobiledetails.phone_picture}.png`} alt="Phone Picture" style={{width: "100px", height: "auto"}} /></td>
+                    <td><img src={`../images/phone_pics/${mobiledetails.phone_picture}.png`} alt="Phone Picture" style={{width: "100px", height: "auto"}} /></td>
                     <td>{mobiledetails.phone_supplier}</td>
                     <td>{mobiledetails.phone_model}</td>
                     <td>${Number(mobiledetails.phone_price).toFixed(2)}</td>

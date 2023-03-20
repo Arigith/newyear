@@ -4,8 +4,8 @@ export default function LoginSetup() {
     const {email, setEmail}=useState(null);
     const {password, setPassword}=useState(null);
 
-    // const handleEmailInput = (event) => {setEmail(event.target.email[0])};
-    // const handlePasswordInput = (event) => {setPassword(event.target.password[0])};
+    // const handleEmailInput = (event) => {setEmail(event.target.email)};
+    // const handlePasswordInput = (event) => {setPassword(event.target.password)};
 
     function handleLogin(event) {
         event.preventDefault();
